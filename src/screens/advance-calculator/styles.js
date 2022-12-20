@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native'
-import { Metrics } from '../../utils'
+import { Colors, Metrics } from '../../utils'
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#202328',
+        backgroundColor: Colors.BACKGROUND,
         flex: 1,
         paddingHorizontal: Metrics.LARGE_MARGIN_ITEM
     },

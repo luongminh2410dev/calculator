@@ -7,7 +7,7 @@ import styles from './styles';
 
 const caculatorUnit = ['deg', 'rad', 'grad'];
 
-const CaculatorTool = (props) => {
+const AdvanceCalculator = (props) => {
     const { navigation } = props;
     const refDisplayView = useRef();
     const [unit, setUnit] = useState(caculatorUnit[0]);
@@ -116,4 +116,4 @@ const CaculatorTool = (props) => {
         </View>
     );
 }
-export default CaculatorTool
+export default AdvanceCalculator

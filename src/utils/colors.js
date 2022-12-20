@@ -8,6 +8,7 @@ const Colors = {
     LIGHTGRAY: '#cccccc',
     BORDER_COLOR: 'lavender',
     GAINSBORO: 'gainsboro',
+    BACKGROUND: '#202328'
 }
 
 export default Colors;

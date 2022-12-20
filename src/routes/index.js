@@ -4,10 +4,10 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, UIManager, View } from 'react-native';
 import { enableScreens } from 'react-native-screens';
 import Feather from 'react-native-vector-icons/Feather';
-import Convertion from '../screens/convertion';
-import Settings from '../screens/settings';
+import ConvertionNavigator from './convertion-navigator';
 import FinanceNavigator from './finance-navigator';
 import HomeNavigator from './home-navigator';
+import SettingNavigator from './setting-navigator';
 
 enableScreens();
 const Tab = createBottomTabNavigator();
@@ -50,8 +50,8 @@ const AppNavigator = (props) => {
                             ),
                         }} />
                     <Tab.Screen
-                        name="Convertion"
-                        component={Convertion}
+                        name="ConvertionNavigator"
+                        component={ConvertionNavigator}
                         options={{
                             tabBarLabel: 'Chuyển đổi',
                             tabBarIcon: ({ focused, color }) => (
@@ -59,8 +59,8 @@ const AppNavigator = (props) => {
                             ),
                         }} />
                     <Tab.Screen
-                        name="Settings"
-                        component={Settings}
+                        name="SettingNavigator"
+                        component={SettingNavigator}
                         options={{
                             tabBarLabel: 'Cài đặt',
                             tabBarIcon: ({ focused, color }) => (
