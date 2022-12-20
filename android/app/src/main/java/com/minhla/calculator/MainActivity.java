@@ -1,4 +1,4 @@
-package com.caculator;
+package com.minhla.calculator;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
