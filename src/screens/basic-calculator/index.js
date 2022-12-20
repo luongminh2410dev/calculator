@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
-
+import Feather from 'react-native-vector-icons/Feather'
+import { Colors } from '../../utils';
 const keyExtractor = (item, index) => `history_${index}`;
 const BasicCalculator = (props) => {
     const { navigation } = props;
@@ -38,6 +39,129 @@ const BasicCalculator = (props) => {
                 </View>
             </View>
             <View style={styles.buttons}>
+                <View style={styles.buttons_row}>
+                    <TouchableOpacity
+                        onPress={() => handleButtonPress(refShiftActive.current ? '%' : '(')}
+                        activeOpacity={0.7}
+                        style={styles.button_item}>
+                        <Text style={styles.button_item_txt}>AC</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={styles.button_item}>
+                        <Text style={styles.button_item_txt}>+/−</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={styles.button_item}>
+                        <Text style={styles.button_item_txt}>%</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={navigateToAdvanceCalculator}
+                        activeOpacity={0.7}
+                        style={styles.button_item}>
+                        <Feather name='maximize-2' size={24} color={Colors.BACKGROUND} />
+                    </TouchableOpacity>
+                </View>
+            </View>
+            <View style={styles.buttons}>
+                <View style={styles.buttons_row}>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>7</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>8</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>9</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_func]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>÷</Text>
+                    </TouchableOpacity>
+
+                </View>
+            </View>
+            <View style={styles.buttons}>
+                <View style={styles.buttons_row}>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>4</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>5</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>6</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_func]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>×</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+            <View style={styles.buttons}>
+                <View style={styles.buttons_row}>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>1</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>2</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>3</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_func]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>−</Text>
+                    </TouchableOpacity>
+
+                </View>
+            </View>
+            <View style={styles.buttons}>
+                <View style={styles.buttons_row}>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>•</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_number]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>0</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_func]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>=</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={[styles.button_item, styles.button_func]}>
+                        <Text style={[styles.button_item_txt, styles.button_number_txt]}>+</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     )
