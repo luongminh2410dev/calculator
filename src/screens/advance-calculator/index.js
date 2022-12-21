@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 // import RNHapticFeedback from "react-native-haptic-feedback";
 import Display from "./components/display";
 import Keyboard from "./components/keyboard";
 import styles from './styles';
+import Feather from 'react-native-vector-icons/Feather'
 
 const caculatorUnit = ['deg', 'rad', 'grad'];
 
@@ -86,9 +87,15 @@ const AdvanceCalculator = (props) => {
         setUnit(caculatorUnit[refUnitCount.current % 3]);
     }
 
+    const onNavigateBack = () => navigation.goBack();
+
     return (
         <View style={styles.container}>
-            <View style={styles.header} />
+            <View style={styles.header}>
+                <TouchableOpacity onPress={onNavigateBack}>
+                    <Feather name='arrow-left' size={24} color='white' />
+                </TouchableOpacity>
+            </View>
             <View style={styles.body}>
                 <Display
                     ref={refDisplayView}

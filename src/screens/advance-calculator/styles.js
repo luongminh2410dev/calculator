@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     },
     header: {
         width: '100%',
+        height: 20,
         marginTop: Metrics.STATUS_BAR_HEIGHT + Metrics.NORMAL_MARGIN_ITEM,
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     list_button: {
-        paddingBottom: 12
+        paddingBottom: 10
     },
 })
 
