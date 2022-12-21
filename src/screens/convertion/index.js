@@ -1,11 +1,18 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import { ScrollView, View } from 'react-native'
+import Currencies from './components/currencies'
+import styles from './styles'
 
 const Convertion = () => {
     return (
-        <View>
-            <Text>Convertion</Text>
-        </View>
+        <ScrollView style={styles.container}>
+            <View style={styles.block}>
+                <Currencies />
+            </View>
+            <View style={styles.block}>
+                <Currencies />
+            </View>
+        </ScrollView>
     )
 }
 

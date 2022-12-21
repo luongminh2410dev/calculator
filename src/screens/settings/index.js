@@ -1,11 +1,14 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
+import styles from './styles'
 
 const Settings = () => {
     return (
-        <View>
-            <Text>Settings</Text>
-        </View>
+        <ScrollView style={styles.container}>
+            <View>
+                <Text>Settings</Text>
+            </View>
+        </ScrollView>
     )
 }
 

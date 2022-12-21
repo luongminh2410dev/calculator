@@ -77,7 +77,10 @@ const BasicDisplay = forwardRef((props, ref) => {
 
     const renderHistoryItem = ({ item, index }) => {
         return (
-            <Text style={styles.history_item}>{item}</Text>
+            <Text
+                numberOfLines={1}
+                adjustsFontSizeToFit
+                style={styles.history_item}>{item}</Text>
         )
     }
 

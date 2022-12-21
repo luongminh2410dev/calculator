@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     header: {
         width: '100%',
         height: 20,
-        marginTop: Metrics.STATUS_BAR_HEIGHT + Metrics.NORMAL_MARGIN_ITEM,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },

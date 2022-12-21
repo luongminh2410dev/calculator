@@ -4,7 +4,6 @@ import { Colors, Metrics } from "../../utils";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: Metrics.STATUS_BAR_HEIGHT,
         backgroundColor: Colors.BACKGROUND
     },
     display: {

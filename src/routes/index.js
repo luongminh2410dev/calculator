@@ -4,6 +4,7 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, UIManager, View } from 'react-native';
 import { enableScreens } from 'react-native-screens';
 import Feather from 'react-native-vector-icons/Feather';
+import { Colors } from '../utils';
 import ConvertionNavigator from './convertion-navigator';
 import FinanceNavigator from './finance-navigator';
 import HomeNavigator from './home-navigator';
@@ -19,7 +20,7 @@ const activeTintColor = 'white';
 const AppNavigator = (props) => {
     return (
         <View style={{ flex: 1 }}>
-            <StatusBar translucent backgroundColor='transparent' barStyle='light-content' />
+            <StatusBar backgroundColor={Colors.BACKGROUND} barStyle='light-content' />
             <NavigationContainer>
                 <Tab.Navigator
                     initialRouteName="HomeNavigator"
