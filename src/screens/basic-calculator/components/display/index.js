@@ -4,34 +4,48 @@ import { FlatList, Text, View } from 'react-native';
 import styles from './styles';
 
 const Mathjs = create(all);
-const ln = (num) => Math.log(num);
-ln.transform = (num) => ln(num);
-Mathjs.import({ ln: ln });
 
 const keyExtractor = (item, index) => `history_${index}`;
 const BasicDisplay = forwardRef((props, ref) => {
     const [expr, setExpr] = useState('');
     const [histories, setHistories] = useState([]);
     const refDisplayer = useRef();
+    const refEqualled = useRef(false);
+    const refPercented = useRef(false);
+    const refExprReverted = useRef('');
 
     useImperativeHandle(ref, () => ({
         onButtonPress: (value) => {
-            setExpr(`${expr}${value}`)
+            setExpr(`${expr}${value}`);
+            refEqualled.current = false;
+            refPercented.current = false;
         },
         onFuncPress: (value) => {
+            refEqualled.current = false;
             switch (value) {
                 case '%':
-
+                    expr != '' ?
+                        setExpr(`(${expr})%`)
+                        :
+                        setExpr('%')
+                    refPercented.current = true;
                     break;
                 case '+-':
-
+                    if (refExprReverted.current != '' && refExprReverted.current != expr) {
+                        setExpr(refExprReverted.current)
+                    }
+                    else {
+                        refExprReverted.current = expr;
+                        setExpr(`-(${expr})`);
+                    }
                     break;
                 default:
-                    setExpr(`${expr} ${value} `)
+                    setExpr(`${expr} ${value} `);
                     break;
             }
         },
         calculate: () => {
+            if (refEqualled.current) return;
             let res;
             try {
                 res = parseFloat(Mathjs.evaluate(expr).toFixed(4));
@@ -39,8 +53,11 @@ const BasicDisplay = forwardRef((props, ref) => {
                 setExpr('ERROR')
             }
             if (!isNaN(res)) {
-                setExpr(res);
+                setExpr(refPercented.current ? `${res * 100}%` : res)
                 setHistories([...histories, `${expr} = ${res}`]);
+                refEqualled.current = true;
+                refPercented.current = false;
+                refExprReverted.current = res
             }
             else {
                 setExpr('ERROR')
@@ -74,7 +91,10 @@ const BasicDisplay = forwardRef((props, ref) => {
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
             />
-            <Text numberOfLines={1} style={styles.current_expr}>{expr}</Text>
+            <Text
+                numberOfLines={1}
+                adjustsFontSizeToFit
+                style={styles.current_expr}>{expr}</Text>
         </View>
     )
 })

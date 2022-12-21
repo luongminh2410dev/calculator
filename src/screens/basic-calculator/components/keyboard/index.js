@@ -9,7 +9,7 @@ const BasicKeyboard = (props) => {
     const { onButtonPress, onFuncPress, onCalculate, clearDisplay } = props;
     const navigation = useNavigation();
 
-    const navigateToAdvanceCalculator = () => navigation.goBack();
+    const navigateToAdvanceCalculator = () => navigation.navigate('AdvanceCalculator');
     return (
         <>
             <View style={styles.buttons_row}>
@@ -119,7 +119,7 @@ const BasicKeyboard = (props) => {
             </View>
             <View style={styles.buttons_row}>
                 <TouchableOpacity
-                    onPress={() => onButtonPress('${expr}.')}
+                    onPress={() => onButtonPress('.')}
                     activeOpacity={0.7}
                     style={[styles.button_item, styles.button_number]}>
                     <Text style={[styles.button_item_txt, styles.button_number_txt]}>•</Text>
