@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 12,
         // backgroundColor: '#78add6',
-        // backgroundColor: '#414141',
-        backgroundColor: '#657c9c'
+        backgroundColor: '#414141',
+        // backgroundColor: '#657c9c'
     },
     currency_item_left: {
         flexDirection: "row",
@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
     },
     currency_flag: {
         width: 40,
-        height: 40,
-        borderRadius: 40,
-        marginRight: 8
+        borderRadius: 2,
+        marginRight: 8,
+        aspectRatio: 1.5,
     },
     currency_name: {
         fontSize: 20,
@@ -61,6 +61,27 @@ const styles = StyleSheet.create({
     currency_value: {
         color: Colors.GREY,
         fontSize: 16
+    },
+    modal: {
+        justifyContent: 'flex-end',
+        alignItems: "center",
+        margin: 0
+    },
+    modal_container: {
+        width: '100%',
+        height: Metrics.DEVICE_HEIGHT * 0.4,
+        backgroundColor: Colors.WHITE,
+        borderTopLeftRadius: 12,
+        borderTopRightRadius: 12,
+        padding: Metrics.LARGE_MARGIN_ITEM
+    },
+    modal_close_btn: {
+        position: 'absolute',
+        right: Metrics.NORMAL_MARGIN_ITEM,
+        top: Metrics.NORMAL_MARGIN_ITEM,
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1
     }
 })
 

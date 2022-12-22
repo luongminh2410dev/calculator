@@ -10,7 +10,7 @@ const Convertion = () => {
                 <Currencies />
             </View>
             <View style={styles.block}>
-                <Currencies />
+
             </View>
         </ScrollView>
     )
