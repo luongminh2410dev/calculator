@@ -5,11 +5,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.BACKGROUND,
-        paddingHorizontal: Metrics.LARGE_MARGIN_ITEM
     },
     block: {
         width: '100%',
-        marginTop: Metrics.LARGE_MARGIN_ITEM
+        marginTop: Metrics.LARGE_MARGIN_ITEM,
     },
 })
 

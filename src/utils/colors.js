@@ -1,4 +1,6 @@
 const Colors = {
+    PRIMARY_COLOR: '#657c9c',
+    FOREIGN_COLOR: '#78add6',
     TEXT_COLOR: '#262626',
     DEFAULT_TEXT_COLOR: '#808080',
     WHITE: '#FFFFFF',

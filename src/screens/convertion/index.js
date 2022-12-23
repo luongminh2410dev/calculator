@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { ScrollView, View } from 'react-native'
-import Currencies from './components/currencies'
+import ConvertModal from './fragments/convert-modal'
+import Currencies from './fragments/currencies'
 import styles from './styles'
 
 const Convertion = () => {
+    const refConvertModal = useRef(null);
     return (
-        <ScrollView style={styles.container}>
-            <View style={styles.block}>
-                <Currencies />
-            </View>
-            <View style={styles.block}>
+        <View style={{ flex: 1, position: 'relative' }}>
+            <ScrollView
+                style={styles.container}
+                showsVerticalScrollIndicator={false}>
+                <View style={styles.block}>
+                    <Currencies />
+                </View>
+                <View style={styles.block}>
 
-            </View>
-        </ScrollView>
+                </View>
+            </ScrollView>
+            <ConvertModal
+                ref={refConvertModal}
+            />
+        </View>
     )
 }
 
