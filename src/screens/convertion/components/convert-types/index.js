@@ -14,7 +14,7 @@ const TypeItem = (props) => {
             onPress={onPress}
             style={styles.type_item}
         >
-            <Text style={[styles.type_item_txt, isActive && { color: Colors.FOREIGN_COLOR }]}>{item}</Text>
+            <Text style={[styles.type_item_txt, isActive && { color: Colors.PRIMARY_COLOR }]}>{item}</Text>
         </TouchableOpacity>
     )
 }

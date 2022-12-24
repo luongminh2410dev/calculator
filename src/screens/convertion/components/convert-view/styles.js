@@ -6,7 +6,7 @@ const COVERT_BOX_SIZE = 100;
 const styles = StyleSheet.create({
     covert_view: {
         position: 'relative',
-        marginTop: Metrics.LARGE_MARGIN_ITEM,
+        marginTop: Metrics.LARGE_MARGIN_ITEM * 2,
         paddingHorizontal: Metrics.LARGE_MARGIN_ITEM
     },
     convert_box: {

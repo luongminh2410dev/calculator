@@ -60,10 +60,10 @@ const ConvertView = forwardRef((props, ref) => {
             <View style={[styles.convert_box, { backgroundColor: Colors.WHITE }]}>
                 <Text style={styles.convert_box_title}>Sang</Text>
                 <View style={styles.convert_box_info}>
-                    <View style={styles.covert_value_btn}>
+                    <TouchableOpacity style={styles.covert_value_btn}>
                         <Text style={styles.convert_box_txt}>{unit2.toUpperCase()}</Text>
                         <Entypo name='chevron-down' size={22} color={Colors.BACKGROUND} />
-                    </View>
+                    </TouchableOpacity>
                     <Text style={styles.convert_box_txt}>{outputValueTxt}</Text>
                 </View>
             </View>
