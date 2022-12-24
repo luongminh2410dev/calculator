@@ -1,14 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
-import { requestHttp } from '../../../../services';
-import { Storage } from '../../../../utils';
+import { requestHttp } from '../../services';
 import CurrencyItem from './components/currency-item';
 import UnitModal from './components/unit-modal';
 import styles from './styles';
 
 const show_currencies = ['USD', 'EUR', 'SGD', 'RUB', 'JPY', 'CNY', 'HKD', 'THB', 'KRW', 'INR', 'AUD', 'CAD'];
-const Currencies = () => {
+const Currency = () => {
     const [currentUnit, setCurrentUnit] = useState(() => {
         const getUnit = Storage.getString('currency_unit');
         return getUnit || 'vnd';
@@ -28,7 +27,7 @@ const Currencies = () => {
     const _initCurrencies = async () => {
         setCurrencies([]);
         const result = await requestHttp(
-            `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currentUnit}.json`,
+            `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currentUnit}.min.json`,
             'GET'
         )
         if (result) {
@@ -41,20 +40,22 @@ const Currencies = () => {
     }
 
     const onToggleUnitModal = () => {
-        refUnitModal.current?.show()
+        refUnitModal.current?.show();
     }
 
     return (
-        <>
-            <View style={styles.block_header}>
-                <Text style={styles.block_title}>Tiền tệ</Text>
+        <ScrollView
+            style={styles.container}
+            showsVerticalScrollIndicator={false}>
+            <View style={styles.header}>
+                <Text style={styles.title}>Tiền tệ</Text>
                 <TouchableOpacity
                     onPress={onToggleUnitModal}
-                    style={styles.block_unit}>
-                    <Text style={styles.block_unit_txt}>Đơn vị <Entypo name='chevron-down' size={14} color='white' /></Text>
+                    style={styles.unit}>
+                    <Text style={styles.unit_txt}>Đơn vị <Entypo name='chevron-down' size={14} color='white' /></Text>
                 </TouchableOpacity>
             </View>
-            <View style={styles.block_content}>
+            <View style={styles.content}>
                 {
                     currencies.length == 0 ?
                         <View style={styles.loading}>
@@ -68,8 +69,8 @@ const Currencies = () => {
                 ref={refUnitModal}
                 currentUnit={currentUnit}
                 setCurrentUnit={setCurrentUnit} />
-        </>
+        </ScrollView>
     )
 }
 
-export default Currencies
+export default Currency

@@ -1,25 +1,37 @@
 import React, { useRef } from 'react'
-import { ScrollView, View } from 'react-native'
-import ConvertModal from './fragments/convert-modal'
-import Currencies from './fragments/currencies'
+import { View } from 'react-native'
+import ConvertTypes from './components/convert-types'
+import ConvertView from './components/convert-view'
+import ConvertKeyboad from './components/keyboard'
 import styles from './styles'
 
 const Convertion = () => {
-    const refConvertModal = useRef(null);
-    return (
-        <View style={{ flex: 1, position: 'relative' }}>
-            <ScrollView
-                style={styles.container}
-                showsVerticalScrollIndicator={false}>
-                <View style={styles.block}>
-                    <Currencies />
-                </View>
-                <View style={styles.block}>
+    const refConvertView = useRef();
 
-                </View>
-            </ScrollView>
-            <ConvertModal
-                ref={refConvertModal}
+    const onChangeConvertType = (type) => {
+        refConvertView.current?.changeConvertType(type)
+    }
+
+    const onKeyboardPress = (value) => {
+        refConvertView.current?.keyboardPress(value);
+    }
+
+    const onSliceValue = () => {
+        refConvertView.current?.sliceInputValue();
+    }
+
+    return (
+        <View style={styles.container}>
+            <ConvertTypes onChangeConvertType={onChangeConvertType} />
+
+            {/* AD BANNER */}
+            {/* <View style={{ width: '100%', height: 60, backgroundColor: 'gray' }} /> */}
+
+            <ConvertView ref={refConvertView} />
+
+            <ConvertKeyboad
+                onKeyboardPress={onKeyboardPress}
+                onSliceValue={onSliceValue}
             />
         </View>
     )

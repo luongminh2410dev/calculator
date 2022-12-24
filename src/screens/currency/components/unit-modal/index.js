@@ -2,8 +2,8 @@ import React, { forwardRef, useImperativeHandle, useState } from 'react'
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Modal from 'react-native-modal'
 import Feather from 'react-native-vector-icons/Feather'
-import { Colors, Metrics } from '../../../../../../utils'
-import { currencyUnits } from '../../../../../../utils/const'
+import { Colors, Metrics } from '../../../../utils'
+import { currencyUnits } from '../../../../const'
 import styles from './styles'
 
 const CurrencyUnit = (props) => {

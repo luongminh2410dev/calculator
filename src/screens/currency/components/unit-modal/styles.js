@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Colors, Metrics } from '../../../../../../utils'
+import { Colors, Metrics } from '../../../../utils'
 
 const styles = StyleSheet.create({
     modal: {
@@ -12,8 +12,7 @@ const styles = StyleSheet.create({
         height: Metrics.DEVICE_HEIGHT * 0.5,
         borderTopLeftRadius: 12,
         borderTopRightRadius: 12,
-        // paddingHorizontal: Metrics.LARGE_MARGIN_ITEM,
-        backgroundColor: '#657c9c',
+        backgroundColor: Colors.MODAL_BACKGROUND,
         overflow: 'hidden'
     },
     modal_close_btn: {

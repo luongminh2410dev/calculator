@@ -2,33 +2,6 @@ import { StyleSheet } from "react-native";
 import { Colors, Metrics } from '../../../../utils'
 
 const styles = StyleSheet.create({
-    block_header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: "center",
-    },
-    block_title: {
-        fontSize: 18,
-        color: Colors.WHITE,
-        fontWeight: "bold"
-    },
-    block_unit: {
-        paddingVertical: 4,
-        paddingHorizontal: 8,
-        justifyContent: 'center',
-        alignItems: "center",
-        borderRadius: 8,
-        borderWidth: 1,
-        borderColor: Colors.WHITESMOKE
-    },
-    block_unit_txt: {
-        fontSize: 13,
-        color: Colors.WHITE,
-    },
-    block_content: {
-        width: '100%',
-        paddingBottom: 12,
-    },
     currency_item: {
         width: '100%',
         flexDirection: "row",
@@ -39,7 +12,7 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         // backgroundColor: '#78add6',
         // backgroundColor: '#414141',
-        backgroundColor: '#657c9c'
+        backgroundColor: Colors.PRIMARY_COLOR
     },
     currency_item_left: {
         flexDirection: "row",
@@ -48,9 +21,9 @@ const styles = StyleSheet.create({
     },
     currency_flag: {
         width: 40,
-        height: 40,
-        borderRadius: 40,
-        marginRight: 8
+        borderRadius: 2,
+        marginRight: 8,
+        aspectRatio: 1.5,
     },
     currency_name: {
         fontSize: 20,
@@ -60,7 +33,12 @@ const styles = StyleSheet.create({
     },
     currency_value: {
         color: Colors.GREY,
-        fontSize: 16
+        fontSize: 16,
+        textAlignVertical: "center"
+    },
+    currency_value_unit: {
+        fontSize: 13,
+        color: 'darkgray'
     }
 })
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import Animated, { FadeInLeft } from 'react-native-reanimated'
-import { countryFlags } from '../../../../../../utils/const'
+import { countryFlags } from '../../../../const'
 import styles from './styles'
 
 const AnimatedButton = Animated.createAnimatedComponent(TouchableOpacity);
@@ -17,7 +17,7 @@ const CurrencyItem = (props) => {
             style={styles.currency_item}>
             <View style={styles.currency_item_left}>
                 <Image
-                    defaultSource={require('../../../../../../assets/default.png')}
+                    defaultSource={require('../../../../assets/images/default.png')}
                     fadeDuration={0}
                     source={{ uri: countryFlags[item.name] }}
                     style={styles.currency_flag}></Image>
