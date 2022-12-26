@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
         maxWidth: 600,
         alignSelf: "center",
         paddingHorizontal: Metrics.LARGE_MARGIN_ITEM,
-        marginTop: Metrics.LARGE_MARGIN_ITEM * 2,
         justifyContent: "center",
         alignItems: "center"
     },

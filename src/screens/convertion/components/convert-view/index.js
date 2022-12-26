@@ -82,39 +82,37 @@ const ConvertView = forwardRef((props, ref) => {
     }
 
     return (
-        <>
-            <View style={styles.covert_view}>
-                <View style={styles.convert_box}>
-                    <Text style={styles.convert_box_title}>Từ</Text>
-                    <View style={styles.convert_box_info}>
-                        <TouchableOpacity
-                            onPress={() => handleShowSelectUnit(1)}
-                            style={styles.covert_value_btn}>
-                            <Text style={styles.convert_box_txt}>{unit1Text}</Text>
-                            <Entypo name='chevron-down' size={22} color={Colors.BACKGROUND} />
-                        </TouchableOpacity>
-                        <Text style={styles.convert_box_txt}>{inputValueTxt}</Text>
-                    </View>
-                </View>
-                <View style={[styles.convert_box, { backgroundColor: Colors.WHITE }]}>
-                    <Text style={styles.convert_box_title}>Sang</Text>
-                    <View style={styles.convert_box_info}>
-                        <TouchableOpacity
-                            onPress={() => handleShowSelectUnit(2)}
-                            style={styles.covert_value_btn}>
-                            <Text style={styles.convert_box_txt}>{unit2Text}</Text>
-                            <Entypo name='chevron-down' size={22} color={Colors.BACKGROUND} />
-                        </TouchableOpacity>
-                        <Text style={styles.convert_box_txt}>{outputValueTxt}</Text>
-                    </View>
-                </View>
-                <View style={styles.revert_view}>
-                    <TouchableOpacity onPress={onRevertConvert} style={styles.revert_btn}>
-                        <Feather name='repeat' size={20} color={Colors.WHITE} />
+        <View style={styles.covert_view}>
+            <View style={styles.convert_box}>
+                <Text style={styles.convert_box_title}>Từ</Text>
+                <View style={styles.convert_box_info}>
+                    <TouchableOpacity
+                        onPress={() => handleShowSelectUnit(1)}
+                        style={styles.covert_value_btn}>
+                        <Text style={styles.convert_box_txt}>{unit1Text}</Text>
+                        <Entypo name='chevron-down' size={22} color={Colors.BACKGROUND} />
                     </TouchableOpacity>
+                    <Text style={styles.convert_box_txt}>{inputValueTxt}</Text>
                 </View>
             </View>
-        </>
+            <View style={[styles.convert_box, styles.convert_box_2]}>
+                <Text style={styles.convert_box_title}>Sang</Text>
+                <View style={styles.convert_box_info}>
+                    <TouchableOpacity
+                        onPress={() => handleShowSelectUnit(2)}
+                        style={styles.covert_value_btn}>
+                        <Text style={styles.convert_box_txt}>{unit2Text}</Text>
+                        <Entypo name='chevron-down' size={22} color={Colors.BACKGROUND} />
+                    </TouchableOpacity>
+                    <Text style={styles.convert_box_txt}>{outputValueTxt}</Text>
+                </View>
+            </View>
+            <View style={styles.revert_view}>
+                <TouchableOpacity onPress={onRevertConvert} style={styles.revert_btn}>
+                    <Feather name='repeat' size={20} color={Colors.WHITE} />
+                </TouchableOpacity>
+            </View>
+        </View>
     )
 })
 

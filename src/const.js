@@ -331,7 +331,7 @@ export const convertRatio = {
     },
     acreage: {
         km_square: { value: 1 / 10000000000, name: 'Kilometer Squares', code: 'km²' },
-        m_square: { value: 1 / 10000, name: 'Kilometer Squares', code: 'm²' },
+        m_square: { value: 1 / 10000, name: 'Meter Squares', code: 'm²' },
         dm_square: { value: 1 / 100, name: 'Decimeter Squares', code: 'dm²' },
         cm_square: { value: 1, name: 'Centimeter Squares', code: 'cm²' },
         ha: { value: 1 / 100000000, name: 'Hecta', code: 'ha' },

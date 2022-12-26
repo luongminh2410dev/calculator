@@ -1,26 +1,30 @@
 import { StyleSheet } from "react-native";
 import { Colors, Metrics } from '../../../../utils'
 
-const REVERT_SIZE = 60;
-const COVERT_BOX_SIZE = 100;
+const REVERT_SIZE = Metrics.isSmallScreen ? 50 : 60;
+const COVERT_BOX_SIZE = Metrics.isSmallScreen ? 80 : 100;
 const styles = StyleSheet.create({
     covert_view: {
         position: 'relative',
-        marginTop: Metrics.LARGE_MARGIN_ITEM * 2,
+        marginTop: Metrics.LARGE_MARGIN_ITEM,
         paddingHorizontal: Metrics.LARGE_MARGIN_ITEM
     },
     convert_box: {
         marginBottom: Metrics.LARGE_MARGIN_ITEM,
         width: '100%',
         height: COVERT_BOX_SIZE,
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
+        paddingVertical: Metrics.LARGE_MARGIN_ITEM,
         paddingHorizontal: Metrics.LARGE_MARGIN_ITEM * 2,
         paddingBottom: REVERT_SIZE / 2,
         backgroundColor: Colors.PRIMARY_COLOR,
         borderRadius: 24,
     },
+    convert_box_2: {
+        backgroundColor: Colors.WHITE,
+    },
     convert_box_title: {
-        fontSize: 15,
+        fontSize: 16,
         fontWeight: '500',
         color: Colors.BACKGROUND,
         marginBottom: Metrics.NORMAL_MARGIN_ITEM
@@ -37,7 +41,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     convert_box_txt: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: "600",
         color: Colors.BACKGROUND,
     },

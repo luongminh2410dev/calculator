@@ -79,7 +79,7 @@ const UnitModal = forwardRef((props, ref) => {
           style={styles.modal_close_btn}>
           <Feather name='x' size={22} color={Colors.WHITE} />
         </TouchableOpacity>
-        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingVertical: 24 }} showsVerticalScrollIndicator={false}>
+        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingVertical: 12 }} showsVerticalScrollIndicator={false}>
           {renderUnitItem}
         </ScrollView>
       </View>
