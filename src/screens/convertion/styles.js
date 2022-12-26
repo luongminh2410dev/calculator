@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.BACKGROUND,
-        paddingTop: Metrics.STATUS_BAR_HEIGHT,
     },
 })
 

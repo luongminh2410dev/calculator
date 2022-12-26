@@ -43,11 +43,11 @@ const styles = StyleSheet.create({
     },
     revert_view: {
         position: 'absolute',
-        top: COVERT_BOX_SIZE - REVERT_SIZE / 2,
-        left: ((Metrics.DEVICE_WIDTH - Metrics.LARGE_MARGIN_ITEM * 2) / 2) - REVERT_SIZE / 2,
         width: REVERT_SIZE,
         height: REVERT_SIZE,
         borderRadius: REVERT_SIZE,
+        top: COVERT_BOX_SIZE - REVERT_SIZE / 2,
+        left: (Metrics.DEVICE_WIDTH / 2) - REVERT_SIZE / 2,
         backgroundColor: Colors.BACKGROUND,
         overflow: 'hidden'
     },
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         transform: [
-            { rotateZ: '45rad' }
+            { rotateZ: '45deg' }
         ],
         backgroundColor: Colors.BACKGROUND,
     },

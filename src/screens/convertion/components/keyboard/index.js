@@ -1,8 +1,8 @@
-import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { Text, TouchableOpacity, View } from 'react-native'
 import Feather from 'react-native-vector-icons/Feather'
-import styles from './styles'
 import { Colors } from '../../../../utils'
+import styles from './styles'
 
 const ConvertKeyboard = (props) => {
     const { onKeyboardPress, onSliceValue } = props;
@@ -72,8 +72,8 @@ const ConvertKeyboard = (props) => {
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={onSliceValue}
-                    style={[styles.key_btn, { backgroundColor: 'transparent' }]}>
-                    <Feather name='delete' size={36} color={Colors.WHITE} />
+                    style={styles.key_btn}>
+                    <Feather name='delete' size={30} color={Colors.WHITE} />
                 </TouchableOpacity>
             </View>
         </View>

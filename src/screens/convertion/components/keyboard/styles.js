@@ -5,11 +5,17 @@ const styles = StyleSheet.create({
     keyboard: {
         flex: 1,
         width: '100%',
+        maxWidth: 600,
+        alignSelf: "center",
         paddingHorizontal: Metrics.LARGE_MARGIN_ITEM,
         marginTop: Metrics.LARGE_MARGIN_ITEM * 2,
+        justifyContent: "center",
+        alignItems: "center"
     },
     row: {
+        flex: 1,
         width: '100%',
+        maxHeight: 80,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: "center",
@@ -17,7 +23,8 @@ const styles = StyleSheet.create({
     },
     key_btn: {
         width: Metrics.DEVICE_WIDTH / 3.5,
-        paddingVertical: 12,
+        maxWidth: 180,
+        height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Colors.PRIMARY_COLOR,
