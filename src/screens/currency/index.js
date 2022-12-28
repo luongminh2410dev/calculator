@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { connect } from 'react-redux';
+import { getCurrencySelector } from '../../redux-selector';
 import { requestHttp } from '../../services';
 import CurrencyItem from './components/currency-item';
 import UnitModal from './components/unit-modal';
 import styles from './styles';
 
 const show_currencies = ['USD', 'EUR', 'SGD', 'RUB', 'JPY', 'CNY', 'HKD', 'THB', 'KRW', 'INR', 'AUD', 'CAD'];
-const Currency = () => {
-    const [currentUnit, setCurrentUnit] = useState(() => {
-        const getUnit = Storage.getString('currency_unit');
-        return getUnit || 'vnd';
-    });
+const Currency = (props) => {
+    const { currency } = props;
+    const [currentUnit, setCurrentUnit] = useState(currency.unit);
     const [currencies, setCurrencies] = useState([]);
 
     const refUnitModal = useRef(null);
@@ -21,13 +21,19 @@ const Currency = () => {
     ))
 
     useEffect(() => {
-        _initCurrencies();
+        if (currentUnit == currency.unit) {
+            setCurrencies(show_currencies.map(i => {
+                return { name: i, value: (1 / currency.ratio[i].value).toFixed(2) }
+            }))
+        } else {
+            updateCurrencies();
+        }
     }, [currentUnit])
 
-    const _initCurrencies = async () => {
+    const updateCurrencies = async () => {
         setCurrencies([]);
         const result = await requestHttp(
-            `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currentUnit}.min.json`,
+            `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currentUnit.toLowerCase()}.min.json`,
             'GET'
         )
         if (result) {
@@ -35,7 +41,6 @@ const Currency = () => {
                 return { name: i, value: (1 / result[currentUnit][i.toLowerCase()]).toFixed(2) }
             })
             setCurrencies(newCurrentcies);
-            Storage.set('currency_unit', currentUnit)
         }
     }
 
@@ -73,4 +78,9 @@ const Currency = () => {
     )
 }
 
-export default Currency
+const mapStateToProps = (state) => {
+    return {
+        currency: getCurrencySelector(state)
+    }
+}
+export default connect(mapStateToProps, null)(Currency)

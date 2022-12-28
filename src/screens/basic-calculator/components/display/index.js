@@ -93,6 +93,7 @@ const BasicDisplay = forwardRef((props, ref) => {
                 renderItem={renderHistoryItem}
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
+                overScrollMode='never'
             />
             <Text
                 numberOfLines={1}

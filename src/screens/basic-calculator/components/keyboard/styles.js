@@ -12,6 +12,8 @@ const styles = StyleSheet.create({
     button_item: {
         width: Metrics.DEVICE_WIDTH / 5.2,
         height: Metrics.DEVICE_WIDTH / 5.2,
+        maxWidth: 100,
+        maxHeight: 100,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: '#a0a0a0',

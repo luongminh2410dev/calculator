@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 import { Colors, Metrics } from '../../../../utils'
 
-const REVERT_SIZE = Metrics.isSmallScreen ? 50 : 60;
-const COVERT_BOX_SIZE = Metrics.isSmallScreen ? 80 : 100;
+const REVERT_SIZE = Metrics.isSmallScreen ? 45 : 60;
+const COVERT_BOX_SIZE = Metrics.isSmallScreen ? 85 : 95;
 const styles = StyleSheet.create({
     covert_view: {
         position: 'relative',

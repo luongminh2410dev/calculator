@@ -2,12 +2,14 @@ import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather'
+import { connect } from 'react-redux'
 import { convertRatio } from '../../../../const'
+import { getCurrencySelector } from '../../../../redux-selector'
 import { Colors } from '../../../../utils'
 import styles from './styles'
 
 const ConvertView = forwardRef((props, ref) => {
-    const { handleShowUnitModal } = props;
+    const { currency, handleShowUnitModal } = props;
     const [unit1, setUnit1] = useState('USD');
     const [unit2, setUnit2] = useState('VND');
     const [inputValue, setInputValue] = useState(0);
@@ -41,19 +43,19 @@ const ConvertView = forwardRef((props, ref) => {
         },
         sliceInputValue: () => {
             const newValue = inputValue.toString().slice(0, -1);
-            newValue ?
+            newValue && inputValue != 'Infinity' ?
                 setInputValue(parseFloat(newValue))
                 :
                 setInputValue(0)
         },
         changeConvertType: (type) => {
-            refCovertType.current = convertRatio[type];
+            refCovertType.current = type == 'currency' ? currency.ratio : convertRatio[type];
             const newUnit1 = Object.keys(refCovertType.current)[0];
             const newUnit2 = Object.keys(refCovertType.current)[1];
             setUnit1(newUnit1);
             setUnit2(newUnit2);
-            setRatio(refCovertType.current[newUnit2].value / refCovertType.current[newUnit1].value);
             setInputValue(0);
+            setRatio(refCovertType.current[newUnit2].value / refCovertType.current[newUnit1].value);
         },
         onUnitChange: (unit) => {
             switch (refChangeUnit.current) {
@@ -92,7 +94,7 @@ const ConvertView = forwardRef((props, ref) => {
                         <Text style={styles.convert_box_txt}>{unit1Text}</Text>
                         <Entypo name='chevron-down' size={22} color={Colors.BACKGROUND} />
                     </TouchableOpacity>
-                    <Text style={styles.convert_box_txt}>{inputValueTxt}</Text>
+                    <Text adjustsFontSizeToFit style={styles.convert_box_txt}>{inputValueTxt}</Text>
                 </View>
             </View>
             <View style={[styles.convert_box, styles.convert_box_2]}>
@@ -104,7 +106,7 @@ const ConvertView = forwardRef((props, ref) => {
                         <Text style={styles.convert_box_txt}>{unit2Text}</Text>
                         <Entypo name='chevron-down' size={22} color={Colors.BACKGROUND} />
                     </TouchableOpacity>
-                    <Text style={styles.convert_box_txt}>{outputValueTxt}</Text>
+                    <Text adjustsFontSizeToFit style={styles.convert_box_txt}>{outputValueTxt}</Text>
                 </View>
             </View>
             <View style={styles.revert_view}>
@@ -116,4 +118,9 @@ const ConvertView = forwardRef((props, ref) => {
     )
 })
 
-export default ConvertView
+const mapStateToProps = (state) => {
+    return {
+        currency: getCurrencySelector(state),
+    }
+}
+export default connect(mapStateToProps, null, null, { forwardRef: true })(ConvertView)
