@@ -69,6 +69,8 @@ const UnitModal = forwardRef((props, ref) => {
       deviceWidth={Metrics.DEVICE_WIDTH}
       deviceHeight={Metrics.DEVICE_HEIGHT}
       style={styles.modal}
+      useNativeDriver
+      useNativeDriverForBackdrop
       onSwipeComplete={handleCloseModal}
       onBackdropPress={handleCloseModal}
     >

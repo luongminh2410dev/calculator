@@ -67,7 +67,7 @@ export const currencyUnits = [
     { code: 'HRK', currency: 'Croatian kuna' },
     { code: 'HTG', currency: 'Haitian gourde' },
     { code: 'HUF', currency: 'Hungarian forint' },
-    { code: 'HKD', name: 'Hongkong dollar' },
+    { code: 'HKD', currency: 'Hongkong dollar' },
     { code: 'IDR', currency: 'Indonesian rupiah' },
     { code: 'ILS', currency: 'Israeli new shekel' },
     { code: 'INR', currency: 'Indian rupee' },
