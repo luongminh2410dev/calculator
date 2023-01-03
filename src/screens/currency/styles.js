@@ -5,13 +5,30 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.BACKGROUND,
-        paddingTop: Metrics.LARGE_MARGIN_ITEM
+    },
+    content_container: {
+        paddingBottom: Metrics.LARGE_MARGIN_ITEM,
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: "center",
         paddingHorizontal: Metrics.LARGE_MARGIN_ITEM,
+        paddingBottom: Metrics.LARGE_MARGIN_ITEM,
+        backgroundColor: 'rgba(32,35,40,0.98)'
+    },
+    header_left: {
+        flex: 1,
+        flexDirection: "row",
+        alignItems: 'center'
+    },
+    back_btn: {
+        padding: Metrics.NORMAL_MARGIN_ITEM,
+        backgroundColor: 'rgba(255,255,255,0.1)',
+        borderRadius: 12,
+        justifyContent: "center",
+        alignItems: 'center',
+        marginRight: Metrics.LARGE_MARGIN_ITEM
     },
     title: {
         fontSize: 18,
@@ -19,16 +36,13 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     unit: {
-        paddingVertical: 4,
-        paddingHorizontal: 8,
+        marginTop: 4,
         justifyContent: 'center',
         alignItems: "center",
-        borderRadius: 24,
-        backgroundColor: Colors.PRIMARY_COLOR
     },
     unit_txt: {
-        fontSize: 13,
-        color: Colors.WHITE,
+        fontSize: 15,
+        color: Colors.GRAY,
         justifyContent: "center",
         alignItems: "center",
         textAlignVertical: "center"
@@ -36,7 +50,7 @@ const styles = StyleSheet.create({
     content: {
         width: '100%',
         minHeight: Metrics.DEVICE_HEIGHT * 0.6,
-        paddingBottom: 12,
+        marginBottom: Metrics.LARGE_MARGIN_ITEM,
         paddingHorizontal: Metrics.LARGE_MARGIN_ITEM,
     },
     loading: {

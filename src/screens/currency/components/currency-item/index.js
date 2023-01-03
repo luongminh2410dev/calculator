@@ -7,9 +7,11 @@ import styles from './styles'
 const AnimatedButton = Animated.createAnimatedComponent(TouchableOpacity);
 const CurrencyItem = (props) => {
     const { item, index, currentUnit } = props;
+
     const onPress = () => {
 
     }
+
     return (
         <AnimatedButton
             onPress={onPress}
@@ -25,7 +27,7 @@ const CurrencyItem = (props) => {
             </View>
             <Text
                 style={styles.currency_value}
-                adjustsFontSizeToFit>{item.value} <Text style={styles.currency_value_unit}>{currentUnit.toUpperCase()}</Text>
+                adjustsFontSizeToFit>{item.value.replace(/\d(?=(\d{3})+\.)/g, '$&,')} <Text style={styles.currency_value_unit}>{currentUnit.toUpperCase()}</Text>
             </Text>
         </AnimatedButton>
     )

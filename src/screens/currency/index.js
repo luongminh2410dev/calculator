@@ -7,18 +7,20 @@ import { requestHttp } from '../../services';
 import CurrencyItem from './components/currency-item';
 import UnitModal from './components/unit-modal';
 import styles from './styles';
+import Feather from 'react-native-vector-icons/Feather'
+import { Metrics } from '../../utils';
 
 const show_currencies = ['USD', 'EUR', 'SGD', 'RUB', 'JPY', 'CNY', 'HKD', 'THB', 'KRW', 'INR', 'AUD', 'CAD'];
 const Currency = (props) => {
-    const { currency } = props;
+    const { currency, navigation } = props;
     const [currentUnit, setCurrentUnit] = useState(currency.unit);
     const [currencies, setCurrencies] = useState([]);
 
     const refUnitModal = useRef(null);
 
-    const renderCurrencyList = currencies.map((i, idx) => (
+    const _renderCurrencyItem = (i, idx) => (
         <CurrencyItem item={i} index={idx} key={idx} currentUnit={currentUnit} />
-    ))
+    )
 
     useEffect(() => {
         if (currentUnit == currency.unit) {
@@ -48,18 +50,32 @@ const Currency = (props) => {
         refUnitModal.current?.show();
     }
 
+    const handleGoBack = () => {
+        navigation.goBack()
+    }
+
     return (
         <ScrollView
             style={styles.container}
+            stickyHeaderIndices={[0]}
+            contentContainerStyle={styles.content_container}
             showsVerticalScrollIndicator={false}>
-            <View style={styles.header}>
-                <Text style={styles.title}>Tiền tệ</Text>
-                <TouchableOpacity
-                    onPress={onToggleUnitModal}
-                    style={styles.unit}>
-                    <Text style={styles.unit_txt}>Đơn vị <Entypo name='chevron-down' size={14} color='white' /></Text>
-                </TouchableOpacity>
-            </View>
+            <>
+                <View style={styles.header}>
+                    <View style={styles.header_left}>
+                        <TouchableOpacity onPress={handleGoBack} style={styles.back_btn}>
+                            <Feather name='chevron-left' size={26} color='white' />
+                        </TouchableOpacity>
+                        <Text style={styles.title}>Tiền tệ</Text>
+                    </View>
+                    <TouchableOpacity
+                        onPress={onToggleUnitModal}
+                        hitSlop={Metrics.HIT_SLOP}
+                        style={styles.unit}>
+                        <Text style={styles.unit_txt}>{currentUnit.toUpperCase()}<Entypo name='chevron-down' size={14} color='gray' /></Text>
+                    </TouchableOpacity>
+                </View>
+            </>
             <View style={styles.content}>
                 {
                     currencies.length == 0 ?
@@ -67,7 +83,7 @@ const Currency = (props) => {
                             <ActivityIndicator size='large' color='#78add6' />
                         </View>
                         :
-                        renderCurrencyList
+                        currencies.map(_renderCurrencyItem)
                 }
             </View>
             <UnitModal

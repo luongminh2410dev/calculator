@@ -36,7 +36,7 @@ const Convertion = () => {
             <ConvertTypes onChangeConvertType={onChangeConvertType} />
 
             {/* AD BANNER */}
-            <View style={{ width: '100%', height: 60, backgroundColor: 'gray' }} />
+            {/* <View style={{ width: '100%', height: 60, backgroundColor: 'gray' }} /> */}
 
             <ConvertView
                 ref={refConvertView}

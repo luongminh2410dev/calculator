@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 const FinanceNavigator = (props) => {
     return (
         <Stack.Navigator
-            initialRouteName='Currency'
+            initialRouteName='Finance'
             screenOptions={screenOptions} >
             <Stack.Screen name='Finance' component={Finance} />
             <Stack.Screen name='Currency' component={Currency} />

@@ -5,7 +5,6 @@ import styles from './styles'
 const Finance = () => {
     return (
         <View style={styles.container}>
-            <Text>Finance</Text>
         </View>
     )
 }

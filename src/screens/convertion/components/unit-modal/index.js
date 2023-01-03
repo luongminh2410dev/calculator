@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react'
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Text, TouchableOpacity, View } from 'react-native'
 import Modal from 'react-native-modal'
 import Feather from 'react-native-vector-icons/Feather'
 import { convertRatio } from '../../../../const'
@@ -28,6 +28,7 @@ const CurrencyUnit = (props) => {
   )
 }
 
+const keyExtractor = (item, index) => `unit_${index}`
 const UnitModal = forwardRef((props, ref) => {
   const { onUnitChange } = props;
   const [data, setData] = useState(convertRatio['currency']);
@@ -51,16 +52,15 @@ const UnitModal = forwardRef((props, ref) => {
 
   const handleCloseModal = () => setVisible(false);
 
-  const renderUnitItem = Object.keys(data).map((i, idx) => (
+  const renderUnitItem = ({ item, index }) => (
     <CurrencyUnit
-      key={idx}
-      item={i}
-      itemData={data[i]}
-      index={idx}
+      item={item}
+      itemData={data[item]}
+      index={index}
       currentUnit={currentUnit}
       _onSelected={_onSelected}
     />
-  ))
+  )
 
   return (
     <Modal
@@ -81,9 +81,17 @@ const UnitModal = forwardRef((props, ref) => {
           style={styles.modal_close_btn}>
           <Feather name='x' size={22} color={Colors.WHITE} />
         </TouchableOpacity>
-        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingVertical: 12 }} showsVerticalScrollIndicator={false}>
-          {renderUnitItem}
-        </ScrollView>
+        <FlatList
+          data={Object.keys(data)}
+          keyExtractor={keyExtractor}
+          renderItem={renderUnitItem}
+          showsVerticalScrollIndicator={false}
+          maxToRenderPerBatch={50}
+          initialNumToRender={30}
+          windowSize={50}
+          removeClippedSubviews
+          contentContainerStyle={{ paddingVertical: 12 }}
+        />
       </View>
     </Modal>
   )

@@ -1,9 +1,9 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react'
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Text, TouchableOpacity, View } from 'react-native'
 import Modal from 'react-native-modal'
 import Feather from 'react-native-vector-icons/Feather'
-import { Colors, Metrics } from '../../../../utils'
 import { currencyUnits } from '../../../../const'
+import { Colors, Metrics } from '../../../../utils'
 import styles from './styles'
 
 const CurrencyUnit = (props) => {
@@ -27,6 +27,7 @@ const CurrencyUnit = (props) => {
   )
 }
 
+const keyExtractor = (item, index) => `unit_${index}`
 const UnitModal = forwardRef((props, ref) => {
   const { currentUnit, setCurrentUnit } = props;
   const [isVisible, setVisible] = useState(false);
@@ -37,15 +38,14 @@ const UnitModal = forwardRef((props, ref) => {
 
   const handleCloseModal = () => setVisible(false);
 
-  const renderCurrencyUnits = currencyUnits.map((i, idx) => (
+  const renderUnitItem = ({ item, index }) => (
     <CurrencyUnit
-      item={i}
-      key={idx}
-      index={idx}
+      item={item}
+      index={index}
       currentUnit={currentUnit}
       setCurrentUnit={setCurrentUnit}
       handleCloseModal={handleCloseModal} />
-  ))
+  )
 
   return (
     <Modal
@@ -66,9 +66,17 @@ const UnitModal = forwardRef((props, ref) => {
           style={styles.modal_close_btn}>
           <Feather name='x' size={22} color={Colors.WHITE} />
         </TouchableOpacity>
-        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-          {renderCurrencyUnits}
-        </ScrollView>
+        <FlatList
+          data={currencyUnits}
+          keyExtractor={keyExtractor}
+          renderItem={renderUnitItem}
+          showsVerticalScrollIndicator={false}
+          maxToRenderPerBatch={50}
+          initialNumToRender={30}
+          windowSize={50}
+          removeClippedSubviews
+          contentContainerStyle={{ paddingVertical: 12 }}
+        />
       </View>
     </Modal>
   )
