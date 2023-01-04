@@ -71,7 +71,7 @@ const AppNavigator = (props) => {
                         component={HomeNavigator}
                         options={{
                             tabBarLabel: 'Máy tính',
-                            tabBarIcon: ({ focused, color }) => (
+                            tabBarIcon: ({ color }) => (
                                 <Feather name='grid' size={15} color={color} />
                             ),
                         }} />
@@ -80,7 +80,7 @@ const AppNavigator = (props) => {
                         component={FinanceNavigator}
                         options={{
                             tabBarLabel: 'Tài chính',
-                            tabBarIcon: ({ focused, color }) => (
+                            tabBarIcon: ({ color }) => (
                                 <Feather name='pie-chart' size={15} color={color} />
                             ),
                         }} />
@@ -89,7 +89,7 @@ const AppNavigator = (props) => {
                         component={ConvertionNavigator}
                         options={{
                             tabBarLabel: 'Chuyển đổi',
-                            tabBarIcon: ({ focused, color }) => (
+                            tabBarIcon: ({ color }) => (
                                 <Feather name='refresh-cw' size={15} color={color} />
                             ),
                         }} />
@@ -98,7 +98,7 @@ const AppNavigator = (props) => {
                         component={SettingNavigator}
                         options={{
                             tabBarLabel: 'Cài đặt',
-                            tabBarIcon: ({ focused, color }) => (
+                            tabBarIcon: ({ color }) => (
                                 <Feather name='settings' size={15} color={color} />
                             ),
                         }} />
