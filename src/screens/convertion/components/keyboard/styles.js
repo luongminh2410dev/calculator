@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     row: {
         flex: 1,
         width: '100%',
-        maxHeight: 80,
+        maxHeight: 60,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: "center",

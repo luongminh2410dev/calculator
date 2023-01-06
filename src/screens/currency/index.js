@@ -9,6 +9,7 @@ import UnitModal from './components/unit-modal';
 import styles from './styles';
 import Feather from 'react-native-vector-icons/Feather'
 import { Metrics } from '../../utils';
+import HeaderBar from '../../components/header-bar'
 
 const show_currencies = ['USD', 'EUR', 'SGD', 'RUB', 'JPY', 'CNY', 'HKD', 'THB', 'KRW', 'INR', 'AUD', 'CAD'];
 const Currency = (props) => {
@@ -54,28 +55,22 @@ const Currency = (props) => {
         navigation.goBack()
     }
 
+    const customRightButton = () => (
+        <TouchableOpacity
+            onPress={onToggleUnitModal}
+            hitSlop={Metrics.HIT_SLOP}
+            style={styles.unit}>
+            <Text style={styles.unit_txt}>{currentUnit.toUpperCase()}<Entypo name='chevron-down' size={14} color='gray' /></Text>
+        </TouchableOpacity>
+    )
+
     return (
         <ScrollView
             style={styles.container}
             stickyHeaderIndices={[0]}
             contentContainerStyle={styles.content_container}
             showsVerticalScrollIndicator={false}>
-            <>
-                <View style={styles.header}>
-                    <View style={styles.header_left}>
-                        <TouchableOpacity onPress={handleGoBack} style={styles.back_btn}>
-                            <Feather name='chevron-left' size={26} color='white' />
-                        </TouchableOpacity>
-                        <Text style={styles.title}>Tiền tệ</Text>
-                    </View>
-                    <TouchableOpacity
-                        onPress={onToggleUnitModal}
-                        hitSlop={Metrics.HIT_SLOP}
-                        style={styles.unit}>
-                        <Text style={styles.unit_txt}>{currentUnit.toUpperCase()}<Entypo name='chevron-down' size={14} color='gray' /></Text>
-                    </TouchableOpacity>
-                </View>
-            </>
+            <HeaderBar title='Tiền tệ' customRightButton={customRightButton} />
             <View style={styles.content}>
                 {
                     currencies.length == 0 ?
