@@ -72,7 +72,9 @@ const BasicDisplay = forwardRef((props, ref) => {
     }))
 
     useEffect(() => {
-        refDisplayer.current?.scrollToEnd();
+        if (histories.length > 0) {
+            refDisplayer.current?.scrollToEnd({ animated: true });
+        }
     }, [histories])
 
     const renderHistoryItem = ({ item, index }) => {
