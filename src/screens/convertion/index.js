@@ -1,8 +1,8 @@
 import React, { useRef } from 'react'
 import { View } from 'react-native'
+import NumberKeyboard from '../../components/keyboard'
 import ConvertTypes from './components/convert-types'
 import ConvertView from './components/convert-view'
-import ConvertKeyboad from './components/keyboard'
 import UnitModal from './components/unit-modal'
 import styles from './styles'
 
@@ -42,7 +42,7 @@ const Convertion = () => {
                 ref={refConvertView}
                 handleShowUnitModal={handleShowUnitModal} />
 
-            <ConvertKeyboad
+            <NumberKeyboard
                 onKeyboardPress={onKeyboardPress}
                 onSliceValue={onSliceValue}
             />

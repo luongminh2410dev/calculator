@@ -1,10 +1,10 @@
 import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import Feather from 'react-native-vector-icons/Feather'
-import { Colors } from '../../../../utils'
+import { Colors } from '../../utils'
 import styles from './styles'
 
-const ConvertKeyboard = (props) => {
+const NumberKeyboard = (props) => {
     const { onKeyboardPress, onSliceValue } = props;
     return (
         <View style={styles.keyboard}>
@@ -80,4 +80,4 @@ const ConvertKeyboard = (props) => {
     )
 }
 
-export default ConvertKeyboard
+export default NumberKeyboard

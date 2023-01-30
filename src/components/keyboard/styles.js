@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Colors, Metrics } from '../../../../utils'
+import { Colors, Metrics } from '../../utils'
 
 const styles = StyleSheet.create({
     keyboard: {
@@ -8,17 +8,17 @@ const styles = StyleSheet.create({
         maxWidth: 600,
         alignSelf: "center",
         paddingHorizontal: Metrics.LARGE_MARGIN_ITEM,
-        justifyContent: "center",
+        justifyContent: "flex-end",
         alignItems: "center"
     },
     row: {
         flex: 1,
         width: '100%',
-        maxHeight: 60,
+        maxHeight: 50,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: "center",
-        marginBottom: Metrics.LARGE_MARGIN_ITEM
+        marginBottom: Metrics.LARGE_MARGIN_ITEM,
     },
     key_btn: {
         width: Metrics.DEVICE_WIDTH / 3.5,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         borderRadius: 36,
     },
     key_btn_txt: {
-        fontSize: 30,
+        fontSize: 28,
         color: Colors.WHITE,
         fontWeight: '500'
     }

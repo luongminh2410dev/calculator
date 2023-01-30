@@ -2,12 +2,14 @@ import { StyleSheet } from "react-native";
 import { Colors, Metrics } from '../../../../utils'
 
 const REVERT_SIZE = Metrics.isSmallScreen ? 45 : 60;
-const COVERT_BOX_SIZE = Metrics.isSmallScreen ? 85 : 95;
+const COVERT_BOX_SIZE = Metrics.isSmallScreen ? 85 : 105;
 const styles = StyleSheet.create({
     covert_view: {
+        flex: 1,
+        justifyContent: 'center',
         position: 'relative',
         marginTop: Metrics.LARGE_MARGIN_ITEM,
-        paddingHorizontal: Metrics.LARGE_MARGIN_ITEM
+        paddingHorizontal: Metrics.LARGE_MARGIN_ITEM,
     },
     convert_box: {
         marginBottom: Metrics.LARGE_MARGIN_ITEM,
