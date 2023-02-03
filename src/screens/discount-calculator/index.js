@@ -5,6 +5,10 @@ import styles from './styles'
 import NumberKeyboard from '../../components/keyboard'
 import InputItem from '../../components/input-item'
 
+// NON_DISCOUNT_PRICE = (BASE_PRICE + BASE_PRICE * VAT_PERCENT);
+// DISCOUNT_PRICE = NON_DISCOUNT_PRICE * DISCOUNT_PERCENT;
+// FINAL_PRICE = NON_DISCOUNT_PRICE - DISCOUNT_PRICE;
+
 const DiscountCalculator = () => {
     const refInputFocused = useRef(-1);
     const refVATInput = useRef();

@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         width: REVERT_SIZE,
         height: REVERT_SIZE,
         borderRadius: REVERT_SIZE,
-        top: COVERT_BOX_SIZE - REVERT_SIZE / 2,
+        top: COVERT_BOX_SIZE,
         left: (Metrics.DEVICE_WIDTH / 2) - REVERT_SIZE / 2,
         backgroundColor: Colors.BACKGROUND,
         overflow: 'hidden'
